@@ -26,7 +26,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 		override.vm.network :private_network, ip: "#{info[:ip]}"
         override.vm.hostname = hostname
         vb.name = hostname
-        vb.customize ["--graphicscontroller","vmsvga" ,"modifyvm", :id, "--memory", info[:mem], "--cpus", info[:cpus], "--hwvirtex", "on" ]
+        #vb.customize ["modifyvm", :id, "--memory", info[:mem], "--cpus", info[:cpus], "--hwvirtex", "on" ]
+        vb.customize ["modifyvm", :id, "--memory", info[:mem], "--cpus", info[:cpus], "--hwvirtex", "on"  ,"--graphicscontroller","vmsvga"  ]
 		disk =  './'+ hostname +'_mysql8_u01_disk.vdi'
 		
 
